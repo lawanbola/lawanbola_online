@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LAWANBOLA - Portal Informasi Bola, Prediksi & Jadwal Pertandingan</title>
+
+    <meta name="description" content="LAWANBOLA adalah portal informasi sepak bola yang menyajikan jadwal pertandingan, prediksi skor, statistik tim, dan berita bola terbaru setiap hari.">
+
+    <meta name="keywords" content="lawanbola, mix parlay, prediksi bola, jadwal bola, statistik sepak bola, informasi sepak bola">
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="LAWANBOLA">
+
+    <link rel="canonical" href="https://lawanbola5.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LAWANBOLA - Portal Informasi Sepak Bola Terlengkap">
+    <meta property="og:description" content="Temukan jadwal pertandingan, prediksi skor, statistik tim, dan informasi sepak bola terbaru bersama LAWANBOLA.">
+    <meta property="og:url" content="https://lawanbola5.com/">
+    <meta property="og:image" content="https://lawanbola5.com/assets/banner.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LAWANBOLA - Portal Informasi Sepak Bola">
+    <meta name="twitter:description" content="Jadwal, prediksi, statistik, dan informasi pertandingan sepak bola terbaru.">
+    <meta name="twitter:image" content="https://lawanbola5.com/assets/banner.jpg">
+
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top, rgba(220, 0, 0, 0.22), transparent 35%),
+                #090909;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(5, 5, 5, 0.94);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 1.65rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .brand-name span {
+            color: #ff2020;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #dddddd;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: #ff3030;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .hero {
+            max-width: 1100px;
+            margin: auto;
+            min-height: 620px;
+            padding: 80px 24px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 48, 48, 0.45);
+            border-radius: 30px;
+            background: rgba(255, 0, 0, 0.09);
+            color: #ff5c5c;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            max-width: 700px;
+            margin-bottom: 22px;
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            line-height: 1.05;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #ff2020;
+        }
+
+        .hero-description {
+            max-width: 660px;
+            color: #c8c8c8;
+            font-size: 1.12rem;
+        }
+
+        .hero-actions {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .button {
+            min-width: 180px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+        }
+
+        .button-primary {
+            background: linear-gradient(135deg, #ff1f1f, #b60000);
+            color: #ffffff;
+            box-shadow: 0 12px 30px rgba(255, 0, 0, 0.22);
+        }
+
+        .button-primary:hover {
+            background: linear-gradient(135deg, #ff3d3d, #d30000);
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+        }
+
+        .button-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-card {
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 22px;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.025));
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-card-title {
+            margin-bottom: 20px;
+            color: #ff4040;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .match-card {
+            padding: 22px;
+            border-radius: 15px;
+            background: #111111;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .match-date {
+            margin-bottom: 16px;
+            color: #969696;
+            font-size: 0.9rem;
+        }
+
+        .teams {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .versus {
+            color: #ff3030;
+            font-size: 0.85rem;
+        }
+
+        .kickoff {
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: #dddddd;
+            font-size: 0.94rem;
+        }
+
+        .features-section {
+            padding: 75px 24px;
+            background: #0e0e0e;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .section-header {
+            max-width: 720px;
+            margin: 0 auto 42px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            margin-bottom: 12px;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+        }
+
+        .section-header p {
+            color: #a9a9a9;
+        }
+
+        .features-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 28px 22px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            background: #161616;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 48, 48, 0.55);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(255, 0, 0, 0.13);
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 1.08rem;
+        }
+
+        .feature-card p {
+            color: #a9a9a9;
+            font-size: 0.93rem;
+        }
+
+        .about {
+            max-width: 900px;
+            margin: auto;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .about h2 {
+            margin-bottom: 20px;
+            font-size: clamp(1.9rem, 4vw, 2.7rem);
+        }
+
+        .about p {
+            color: #b8b8b8;
+            font-size: 1.02rem;
+        }
+
+        footer {
+            padding: 26px 20px;
+            background: #050505;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            color: #777777;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: #d4d4d4;
+        }
+
+        @media (max-width: 900px) {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+                text-align: center;
+            }
+
+            .hero-description {
+                margin: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-card {
+                max-width: 520px;
+                width: 100%;
+                margin: auto;
+                text-align: left;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            header {
+                padding: 14px 18px;
+            }
+
+            .brand img {
+                width: 43px;
+                height: 43px;
+            }
+
+            .brand-name {
+                font-size: 1.35rem;
+            }
+
+            .hero {
+                padding: 50px 18px;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .hero-card {
+                padding: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-section,
+            .about {
+                padding: 60px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page-wrapper">
+
+    <header>
+        <div class="navbar">
+
+            <a href="/" class="brand" aria-label="Beranda LAWANBOLA">
+                <img src="assets/logo.png" alt="Logo LAWANBOLA">
+                <div class="brand-name">LAWAN<span>BOLA</span></div>
+            </a>
+
+            <nav aria-label="Navigasi utama">
+                <a href="#beranda">Beranda</a>
+                <a href="#fitur">Informasi Bola</a>
+                <a href="#tentang">Tentang Kami</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="beranda">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    ⚽ Informasi Sepak Bola Setiap Hari
+                </div>
+
+                <h1>
+                    Ikuti Dunia Sepak Bola Bersama
+                    <span>LAWANBOLA</span>
+                </h1>
+
+                <p class="hero-description">
+                    LAWANBOLA menyajikan jadwal pertandingan, prediksi skor,
+                    statistik tim, analisis pertandingan, dan informasi sepak
+                    bola terbaru untuk penggemar bola Indonesia.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        href="https://lawanbola5.com/"
+                        class="button button-primary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        KUNJUNGI LAWANBOLA
+                    </a>
+
+                    <a href="#fitur" class="button button-secondary">
+                        LIHAT INFORMASI
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-card">
+
+                <div class="hero-card-title">
+                    Pertandingan Pilihan
+                </div>
+
+                <div class="match-card">
+
+                    <div class="match-date">
+                        Jadwal pertandingan terbaru
+                    </div>
+
+                    <div class="teams">
+                        <span>Tim Tuan Rumah</span>
+                        <span class="versus">VS</span>
+                        <span>Tim Tamu</span>
+                    </div>
+
+                    <div class="kickoff">
+                        🕒 Jadwal kick-off diperbarui secara berkala
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="features-section" id="fitur">
+
+            <div class="section-header">
+                <h2>Informasi Bola dalam Satu Platform</h2>
+                <p>
+                    Dapatkan berbagai informasi penting sebelum mengikuti
+                    pertandingan sepak bola favorit Anda.
+                </p>
+            </div>
+
+            <div class="features-grid">
+
+                <article class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Jadwal Pertandingan</h3>
+                    <p>
+                        Jadwal pertandingan sepak bola dari berbagai liga dan
+                        kompetisi internasional.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Statistik Tim</h3>
+                    <p>
+                        Informasi performa, catatan pertandingan, dan statistik
+                        tim sebelum kick-off.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Analisis Pertandingan</h3>
+                    <p>
+                        Analisis berdasarkan performa terbaru, kekuatan tim,
+                        dan hasil pertemuan sebelumnya.
+                    </p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">⚽</div>
+                    <h3>Prediksi Skor</h3>
+                    <p>
+                        Referensi prediksi skor pertandingan yang disusun dari
+                        data dan kondisi kedua tim.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="about" id="tentang">
+
+            <h2>Tentang LAWANBOLA</h2>
+
+            <p>
+                LAWANBOLA merupakan portal informasi sepak bola yang hadir
+                untuk membantu penggemar mengikuti jadwal, berita, statistik,
+                prediksi, dan perkembangan pertandingan dari berbagai
+                kompetisi. Seluruh informasi disajikan secara ringkas,
+                responsif, dan mudah diakses melalui perangkat desktop maupun
+                smartphone.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>
+            &copy; 2026 <strong>LAWANBOLA</strong>. Portal Informasi Sepak Bola Indonesia.
+        </p>
+    </footer>
+
+</div>
+
+</body>
+</html>
